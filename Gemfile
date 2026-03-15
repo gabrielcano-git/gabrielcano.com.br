@@ -1,0 +1,11 @@
+source "https://rubygems.org"
+
+gem "jekyll", "~> 4.3"
+gem "jekyll-paginate", "~> 1.1"
+gem "jekyll-sitemap"
+gem "jekyll-seo-tag"
+gem "jekyll-feed"
+gem "jekyll-import"
+gem "hpricot"
+gem "open_uri_redirections"
+gem "nokogiri"

@@ -1,0 +1,60 @@
+title: Gabriel Cano
+description: Blog pessoal sobre tecnologia, desenvolvimento e palestras.
+url: "https://gabrielcano.com.br"
+baseurl: ""
+author:
+  name: Gabriel Cano
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Pagination
+paginate: 10
+paginate_path: "/page/:num/"
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - docker-compose.yml
+  - import.rb
+  - "*.xml"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+# Navigation
+nav:
+  - title: Início
+    url: /
+  - title: Tecnologia
+    url: /categoria/tecnologia/
+  - title: Tips and Tricks
+    url: /categoria/tips-and-tricks/
+  - title: Newsletter
+    url: /categoria/newsletter/

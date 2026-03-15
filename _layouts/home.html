@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<h2 class="section-title">Minhas publicações mais recentes:</h2>
+
+<div class="post-list">
+  {% for post in paginator.posts %}
+  <article class="post-card">
+    {% if post.image %}
+    <a href="{{ post.url | relative_url }}" class="post-thumb">
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+    </a>
+    {% endif %}
+    <div class="post-card-body">
+      <h2 class="post-card-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      <div class="post-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">
+          {{ post.date | date: "%d de %B de %Y" }}
+        </time>
+        {% if post.categories.size > 0 %}
+        &mdash;
+        {% for cat in post.categories %}
+        <a href="{{ '/categoria/' | append: cat | downcase | replace: ' ', '-' | relative_url }}" class="post-cat">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+        {% endif %}
+      </div>
+      {% if post.excerpt %}
+      <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
+      {% endif %}
+      <a href="{{ post.url | relative_url }}" class="read-more">Ler mais &rarr;</a>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+<nav class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="prev">&larr; Mais recentes</a>
+  {% endif %}
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" class="next">Posts anteriores &rarr;</a>
+  {% endif %}
+</nav>
+{% endif %}
