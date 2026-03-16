@@ -1,0 +1,71 @@
+<!-- Terminal Updates (API ou dados estáticos) -->
+{% assign use_api = site.social_updates_api_url | strip %}
+{% if use_api != "" or site.data.updates %}
+<div class="sidebar-widget" data-social-updates>
+  <h4 class="sidebar-label sidebar-label--pulse">
+    <span class="pulse-dot"></span>tail -f social.log
+  </h4>
+  <div class="updates-list" id="social-updates-list" data-api-url="{{ site.social_updates_api_url | strip }}">
+    {% if use_api == "" %}
+      {% comment %} Fallback: dados estáticos no build {% endcomment %}
+      {% for update in site.data.updates limit: 3 %}
+      <div class="update-item{% if forloop.first %} update-item--active{% endif %}">
+        <p class="update-text">{% if update.link %}<a href="{{ update.link }}" target="_blank" rel="noopener noreferrer">{{ update.text }}</a>{% else %}{{ update.text }}{% endif %}</p>
+        <span class="update-time">{% if update.link %}<a href="{{ update.link }}" target="_blank" rel="noopener noreferrer">{{ update.time | upcase }}</a>{% else %}{{ update.time | upcase }}{% endif %}</span>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div class="updates-list--loading" data-loading>Carregando…</div>
+    {% endif %}
+  </div>
+</div>
+{% if use_api != "" %}
+<script>
+(function () {
+  var listEl = document.getElementById('social-updates-list');
+  if (!listEl) return;
+  var apiUrl = listEl.getAttribute('data-api-url');
+  if (!apiUrl) return;
+
+  function relativeTime(iso) {
+    var date = new Date(iso);
+    var now = new Date();
+    var s = Math.floor((now - date) / 1000);
+    if (s < 60) return 'agora';
+    if (s < 3600) return Math.floor(s / 60) + ' min atrás';
+    if (s < 86400) return Math.floor(s / 3600) + ' horas atrás';
+    if (s < 604800) return Math.floor(s / 86400) + ' dias atrás';
+    if (s < 2592000) return Math.floor(s / 604800) + ' semanas atrás';
+    return date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'short' });
+  }
+
+  function render(items) {
+    var limit = 3;
+    var html = items.slice(0, limit).map(function (u, i) {
+      var time = u.time || (u.timestamp ? relativeTime(u.timestamp) : '');
+      var text = (u.text || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      var active = i === 0 ? ' update-item--active' : '';
+      var link = (u.link || '').replace(/"/g, '&quot;');
+      var textHtml = link ? '<a href="' + link + '" target="_blank" rel="noopener noreferrer">' + text + '</a>' : text;
+      var timeStr = time.toUpperCase();
+      var timeHtml = link ? '<a href="' + link + '" target="_blank" rel="noopener noreferrer">' + timeStr + '</a>' : timeStr;
+      return '<div class="update-item' + active + '"><p class="update-text">' + textHtml + '</p><span class="update-time">' + timeHtml + '</span></div>';
+    }).join('');
+    listEl.innerHTML = html;
+  }
+
+  function showError(msg) {
+    listEl.innerHTML = '<div class="updates-list--error">' + (msg || 'Não foi possível carregar os updates.') + '</div>';
+  }
+
+  fetch(apiUrl)
+    .then(function (res) { return res.ok ? res.json() : Promise.reject(new Error('API error ' + res.status)); })
+    .then(function (data) {
+      var items = Array.isArray(data) ? data : (data.data || []);
+      if (items.length) render(items); else showError('Nenhum update no momento.');
+    })
+    .catch(function () { showError(); });
+})();
+</script>
+{% endif %}
+{% endif %}
