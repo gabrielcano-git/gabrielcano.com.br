@@ -1,48 +1,182 @@
 ---
 layout: default
+wide: true
 ---
 
-<h2 class="section-title">Minhas publicações mais recentes:</h2>
+<div class="home-grid">
 
-<div class="post-list">
-  {% for post in paginator.posts %}
-  <article class="post-card">
-    {% if post.image %}
-    <a href="{{ post.url | relative_url }}" class="post-thumb">
-      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
-    </a>
-    {% endif %}
-    <div class="post-card-body">
-      <h2 class="post-card-title">
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      </h2>
-      <div class="post-meta">
-        <time datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: "%d de %B de %Y" }}
-        </time>
-        {% if post.categories.size > 0 %}
-        &mdash;
-        {% for cat in post.categories %}
-        <a href="{{ '/categoria/' | append: cat | downcase | replace: ' ', '-' | relative_url }}" class="post-cat">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
+  <!-- ===== Main Post Feed ===== -->
+  <section class="home-main">
+
+    {% assign featured = paginator.posts[0] %}
+
+    {% if featured %}
+    <article class="featured-post">
+      {% if featured.image %}
+      <div class="featured-thumb">
+        <a href="{{ featured.url | relative_url }}">
+          <img src="{{ featured.image | relative_url }}" alt="{{ featured.title }}" loading="eager">
+        </a>
+        {% if featured.categories.size > 0 %}
+        <span class="post-badge post-badge--{{ featured.categories[0] | downcase | replace: ' ', '-' | replace: '/', '-' }}">{{ featured.categories[0] }}</span>
         {% endif %}
       </div>
-      {% if post.excerpt %}
-      <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
       {% endif %}
-      <a href="{{ post.url | relative_url }}" class="read-more">Ler mais &rarr;</a>
-    </div>
-  </article>
-  {% endfor %}
-</div>
+      <div class="featured-body">
+        <h2 class="featured-title">
+          <a href="{{ featured.url | relative_url }}">{{ featured.title }}</a>
+        </h2>
+        {% if featured.excerpt %}
+        <p class="featured-excerpt">{{ featured.excerpt | strip_html | truncate: 220 }}</p>
+        {% endif %}
+        <div class="post-meta-row">
+          <time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%B %d, %Y" }}</time>
+          {% if featured.read_time %}
+          <span class="meta-sep">•</span>
+          <span>{{ featured.read_time }} min read</span>
+          {% endif %}
+        </div>
+      </div>
+    </article>
 
-{% if paginator.total_pages > 1 %}
-<nav class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}" class="prev">&larr; Mais recentes</a>
-  {% endif %}
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}" class="next">Posts anteriores &rarr;</a>
-  {% endif %}
-</nav>
-{% endif %}
+    <hr class="home-sep">
+    {% endif %}
+
+    {% assign grid_posts = paginator.posts | slice: 1, 2 %}
+    {% if grid_posts.size > 0 %}
+    <div class="posts-grid">
+      {% for post in grid_posts %}
+      <article class="post-card-grid">
+        {% if post.image %}
+        <div class="post-card-thumb">
+          <a href="{{ post.url | relative_url }}">
+            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+          </a>
+          {% if post.categories.size > 0 %}
+          <span class="post-badge post-badge--{{ post.categories[0] | downcase | replace: ' ', '-' | replace: '/', '-' }}">{{ post.categories[0] }}</span>
+          {% endif %}
+        </div>
+        {% endif %}
+        <h3 class="post-card-grid-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        {% if post.excerpt %}
+        <p class="post-card-grid-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% assign extra_posts = paginator.posts | slice: 3, 100 %}
+    {% if extra_posts.size > 0 %}
+    <hr class="home-sep">
+    <div class="posts-extra-list">
+      {% for post in extra_posts %}
+      <article class="post-list-row">
+        <div class="post-list-row-body">
+          {% if post.categories.size > 0 %}
+          <span class="post-badge post-badge--{{ post.categories[0] | downcase | replace: ' ', '-' | replace: '/', '-' }}">{{ post.categories[0] }}</span>
+          {% endif %}
+          <h3 class="post-list-row-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h3>
+          <time class="post-list-row-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+        </div>
+        {% if post.image %}
+        <a href="{{ post.url | relative_url }}" class="post-list-row-thumb">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+        </a>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if paginator.total_pages > 1 %}
+    <div class="load-more-wrap">
+      {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}" class="load-more-btn">LOAD MORE ENTRIES</a>
+      {% endif %}
+      {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="load-more-btn">&larr; NEWER ENTRIES</a>
+      {% endif %}
+    </div>
+    {% endif %}
+
+  </section>
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="home-sidebar">
+
+    <!-- Search -->
+    <div class="sidebar-widget">
+      <h4 class="sidebar-label">Search the Vault</h4>
+      <div class="search-wrap">
+        <input type="text" id="sidebar-search" class="search-input" placeholder="Type to search...">
+        <svg class="search-icon" width="18" height="18" fill="none" viewBox="0 0 18 18" aria-hidden="true">
+          <circle cx="8" cy="8" r="5.5" stroke="#6b7280" stroke-width="1.5"/>
+          <path d="M12.5 12.5L16 16" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <div class="sidebar-widget">
+      <div class="author-row">
+        {% if site.author.avatar %}
+        <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" class="author-avatar">
+        {% else %}
+        <div class="author-avatar author-avatar--initials">
+          {{- site.author.name | split: ' ' | map: 'first' | join: '' | upcase | slice: 0, 2 -}}
+        </div>
+        {% endif %}
+        <div class="author-meta">
+          <div class="author-name">{{ site.author.name }}</div>
+          {% if site.author.role %}<div class="author-role">{{ site.author.role }}</div>{% endif %}
+        </div>
+      </div>
+      {% if site.author.bio %}
+      <p class="author-bio-text">{{ site.author.bio }}</p>
+      {% endif %}
+      <div class="author-social">
+        {% if site.author.twitter and site.author.twitter != '' %}
+        <a href="https://twitter.com/{{ site.author.twitter }}" class="social-icon-link" target="_blank" rel="noopener" aria-label="Twitter">
+          <svg width="18" height="18" fill="none" viewBox="0 0 20 20"><path d="M15.4 3H17.6L12.85 8.19 18.44 17H13.82l-3.69-5.51L6.06 17H3.84l5.05-5.53L1.84 3h4.74l3.4 5.07L15.4 3zm-.87 12.38h1.32L5.53 4.56H4.14l10.39 10.82z" fill="#94a3b8"/></svg>
+        </a>
+        {% endif %}
+        {% if site.author.instagram and site.author.instagram != '' %}
+        <a href="https://instagram.com/{{ site.author.instagram }}" class="social-icon-link" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="18" height="18" fill="none" viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="4" stroke="#94a3b8" stroke-width="1.5"/><circle cx="10" cy="10" r="3" stroke="#94a3b8" stroke-width="1.5"/><circle cx="14.5" cy="5.5" r="1" fill="#94a3b8"/></svg>
+        </a>
+        {% endif %}
+        {% if site.author.github and site.author.github != '' %}
+        <a href="https://github.com/{{ site.author.github }}" class="social-icon-link" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg width="18" height="18" fill="none" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2C5.58 2 2 5.58 2 10c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0018 10c0-4.42-3.58-8-8-8z" fill="#94a3b8"/></svg>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+
+    {% include social-updates.html %}
+
+    <!-- Categories -->
+    {% assign has_cats = false %}
+    {% for cat in site.categories %}{% assign has_cats = true %}{% break %}{% endfor %}
+    {% if has_cats %}
+    <div class="sidebar-widget">
+      <h4 class="sidebar-label">Tags</h4>
+      <div class="tag-cloud">
+        {% for cat in site.categories %}
+        <a href="{{ '/categoria/' | append: cat[0] | downcase | replace: ' ', '-' | relative_url }}" class="tag-pill">{{ cat[0] }}</a>
+        {% endfor %}
+        {% for tag in site.tags %}
+        <a href="#" class="tag-pill">{{ tag[0] }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+  </aside>
+
+</div>

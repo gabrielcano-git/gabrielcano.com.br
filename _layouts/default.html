@@ -16,7 +16,7 @@
   {% include header.html %}
 
   <main class="site-main">
-    <div class="container">
+    <div class="container{% if layout.wide %} container--wide{% endif %}">
       {{ content }}
     </div>
   </main>
