@@ -4,6 +4,11 @@ url: "https://gabrielcano.com.br"
 baseurl: ""
 author:
   name: Gabriel Cano
+  role: Desenvolvedor & Escritor
+  bio: Desenvolvedor apaixonado por tecnologia, cinema e escrita. Compartilhando pensamentos e experiências pelo caminho.
+  github: gabrielcano
+  twitter:
+  instagram:
 
 # Build
 markdown: kramdown
@@ -47,6 +52,8 @@ defaults:
       type: pages
     values:
       layout: page
+
+social_updates_api_url: "https://gg6lcn3961.execute-api.us-east-1.amazonaws.com/default/threads-api"
 
 # Navigation
 nav:
