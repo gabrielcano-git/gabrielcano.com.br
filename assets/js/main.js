@@ -12,18 +12,20 @@ function setRating(nota) {
 
 // Mobile nav toggle
 document.addEventListener('DOMContentLoaded', function () {
-  const toggle = document.querySelector('.nav-toggle');
-  const menu = document.querySelector('.nav-menu');
+  const toggle = document.querySelector('.header-nav-toggle');
+  const nav = document.querySelector('.header-nav');
 
-  if (toggle && menu) {
+  if (toggle && nav) {
     toggle.addEventListener('click', function () {
-      menu.classList.toggle('open');
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
     });
 
     // Fecha ao clicar fora
     document.addEventListener('click', function (e) {
-      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-        menu.classList.remove('open');
+      if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
       }
     });
   }
