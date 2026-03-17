@@ -1,41 +1,105 @@
 ---
 layout: default
+full: true
 ---
 
-<article class="post">
-  <header class="post-header">
-    {% if page.image %}
-    <div class="post-featured-image">
-      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-    </div>
-    {% endif %}
-    <h1 class="post-title">{{ page.title }}</h1>
-    <div class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: "%d de %B de %Y" }}
-      </time>
-      {% if page.categories.size > 0 %}
-      &mdash;
-      {% for cat in page.categories %}
-      <a href="{{ '/categoria/' | append: cat | downcase | replace: ' ', '-' | relative_url }}" class="post-cat">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
-      {% endfor %}
-      {% endif %}
-    </div>
-  </header>
-
-  <div class="post-content">
-    {{ content }}
+<!-- Hero Section -->
+<section class="post-hero">
+  {% if page.image %}
+  <div class="post-hero-bg">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
   </div>
+  {% else %}
+  <div class="post-hero-bg post-hero-bg--no-image"></div>
+  {% endif %}
+  <div class="post-hero-gradient"></div>
+  <div class="post-hero-content">
+    <div class="post-hero-badges">
+      {% for cat in page.categories limit:1 %}
+      <a href="{{ '/categoria/' | append: cat | downcase | replace: ' ', '-' | relative_url }}" class="post-hero-badge post-hero-badge--primary">{{ cat | upcase }}</a>
+      {% endfor %}
+      {% for tag in page.tags limit:2 %}
+      <span class="post-hero-badge post-hero-badge--overlay">{{ tag | upcase }}</span>
+      {% endfor %}
+    </div>
+    <h1 class="post-hero-title">{{ page.title }}</h1>
+    <div class="post-hero-meta">
+      <span>Por {{ page.author | default: site.author.name }}</span>
+      <span class="post-hero-dot">•</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %b %Y" }}</time>
+      <span class="post-hero-dot">•</span>
+      {% assign words = content | number_of_words %}
+      {% assign reading_time = words | divided_by: 200 | plus: 1 %}
+      <span>{{ reading_time }} min de leitura</span>
+    </div>
+  </div>
+</section>
 
-  <footer class="post-footer">
-    <a href="{{ '/' | relative_url }}" class="back-link">&larr; Voltar para o blog</a>
+<!-- Content Layout -->
+<div class="post-layout">
+  <article class="post-main">
+    <div class="post-content">
+      {{ content }}
+    </div>
 
     {% if page.tags.size > 0 %}
-    <div class="post-tags">
+    <div class="post-tags-section">
+      <span class="post-tags-label">TAGS:</span>
       {% for tag in page.tags %}
-      <span class="tag">{{ tag }}</span>
+      <span class="post-tag-pill">{{ tag }}</span>
       {% endfor %}
     </div>
     {% endif %}
-  </footer>
-</article>
+  </article>
+
+  <aside class="post-sidebar">
+    <!-- Newsletter -->
+    <div class="post-sidebar-newsletter">
+      <div class="post-sidebar-newsletter-deco"></div>
+      <h3>The Weekly Geek</h3>
+      <p>Receba as últimas resenhas, notícias e análises direto no seu e-mail.</p>
+      <form class="post-sidebar-newsletter-form" action="#" method="post">
+        <input type="email" name="email" placeholder="email@endereço.com" class="post-sidebar-newsletter-input">
+        <button type="submit" class="post-sidebar-newsletter-btn">ENTRAR NA REDE</button>
+      </form>
+    </div>
+
+    <!-- Related Posts -->
+    {% assign related_posts = site.posts | where_exp: "p", "p.url != page.url" | limit: 3 %}
+    {% if related_posts.size > 0 %}
+    <div class="post-sidebar-section">
+      <h3 class="post-sidebar-heading">POSTS RELACIONADOS</h3>
+      <div class="post-sidebar-related">
+        {% for p in related_posts %}
+        <a href="{{ p.url | relative_url }}" class="post-related-item">
+          <div class="post-related-thumb{% unless p.image %} post-related-thumb--placeholder{% endunless %}">
+            {% if p.image %}
+            <img src="{{ p.image | relative_url }}" alt="{{ p.title }}">
+            {% endif %}
+          </div>
+          <div class="post-related-body">
+            <h4 class="post-related-title">{{ p.title | truncate: 60 }}</h4>
+            <time class="post-related-date">{{ p.date | date: "%b %d, %Y" }}</time>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Categories -->
+    {% if site.categories.size > 0 %}
+    <div class="post-sidebar-section">
+      <h3 class="post-sidebar-heading">CATEGORIAS</h3>
+      <ul class="post-sidebar-cats">
+        {% for cat in site.categories %}
+        <li class="post-sidebar-cat-item">
+          <a href="{{ '/categoria/' | append: cat[0] | downcase | replace: ' ', '-' | relative_url }}" class="post-sidebar-cat-link">{{ cat[0] }}</a>
+          <span class="post-sidebar-cat-count">{{ cat[1].size }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </aside>
+</div>

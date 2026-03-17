@@ -15,10 +15,14 @@
 <body>
   {% include header.html %}
 
-  <main class="site-main">
-    <div class="container{% if layout.wide %} container--wide{% endif %}">
+  <main class="site-main{% if layout.full %} site-main--full{% endif %}">
+    {% if layout.full %}
       {{ content }}
-    </div>
+    {% else %}
+      <div class="container{% if layout.wide %} container--wide{% endif %}">
+        {{ content }}
+      </div>
+    {% endif %}
   </main>
 
   {% include footer.html %}
