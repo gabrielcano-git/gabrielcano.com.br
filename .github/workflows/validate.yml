@@ -8,7 +8,7 @@ permissions:
   contents: read
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
