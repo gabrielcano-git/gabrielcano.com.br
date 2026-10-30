@@ -275,6 +275,8 @@ const server = http.createServer((req, res) => {
     await page.getByRole("button", { name: "Tudo", exact: true }).click();
     assert.equal(await page.locator("[data-topic]:visible").count(), 3);
     await page.setViewportSize({ width: 390, height: 844 });
+    // Start at the mobile viewport before testing keys, after resize cleanup.
+    await page.goto(origin);
     await page.getByRole("button", { name: "Abrir menu" }).focus();
     await page.keyboard.press("Enter");
     assert.equal(
@@ -282,6 +284,13 @@ const server = http.createServer((req, res) => {
       "true",
     );
     await page.keyboard.press("Tab");
+    assert.equal(
+      await page.evaluate(
+        () => document.activeElement.closest("#site-nav") !== null,
+      ),
+      true,
+      "Tab enters the open navigation",
+    );
     await page.keyboard.press("Escape");
     assert.equal(
       await page.locator(".nav-toggle").getAttribute("aria-expanded"),
