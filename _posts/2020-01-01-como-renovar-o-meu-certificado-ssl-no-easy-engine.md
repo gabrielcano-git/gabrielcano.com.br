@@ -2,10 +2,11 @@
 layout: post
 title: "Como renovar o meu Certificado SSL no Easy Engine"
 date: 2020-01-01
-categories: [Tecnologia]
+categories: [Tecnologia, Tips and Tricks]
+historical: true
 ---
 
-[Escrevi um artigo sobre o poder do Easy Engine](https://gabrielcano.com.br/o-poder-do-easy-engine/) e precisei renovar o certificado SSL, porém tive grandes dificuldades no processo.
+[Escrevi um artigo sobre o poder do Easy Engine](/2019/02/17/o-poder-do-easy-engine/) e precisei renovar o certificado SSL, porém tive grandes dificuldades no processo.
 
 Lá na documentação do [Easy Engine](https://easyengine.io/), parece tudo ser uma maravilha. Vejam:
 

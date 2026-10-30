@@ -1,0 +1,5 @@
+{% if page.nota %}
+<h2>Nota</h2>
+<div class="review-rating"><div class="stars-outer" aria-hidden="true"><div class="stars-inner" style="width: {{ page.nota | times: 10 }}%"></div></div><p><strong>{{ page.nota }}/10</strong></p></div>
+{% if page.skoob %}<p><a href="{{ page.skoob | escape }}" rel="noopener noreferrer">Ver a obra no Skoob</a></p>{% endif %}
+{% endif %}

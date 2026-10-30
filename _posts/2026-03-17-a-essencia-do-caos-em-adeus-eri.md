@@ -5,7 +5,6 @@ date: 2026-03-17
 categories: [Resenhas, Leituras]
 tags: [Resenhas, Mangás, Leituras, Tatsuki Fujimoto]
 nota: 10
-skoob: https://skoob.com
 ---
 
 Muitas pessoas associam o nome do **Tatsuki Fujimoto** imediatamente ao _Chainsaw Man_. De fato, essa é sua obra-prima — uma construção comercial brilhante e impactante. Porém o "verdadeiro" Fujimoto reside em um espectro muito mais profundo e pessoal, presente principalmente em suas histórias curtas (como as coletâneas _17-21_ e _22-26_) e Look Back. Embora _Chainsaw Man_ seja uma porta de entrada divertida, é nos _one-shots_ que ele revela sua face mais crua.

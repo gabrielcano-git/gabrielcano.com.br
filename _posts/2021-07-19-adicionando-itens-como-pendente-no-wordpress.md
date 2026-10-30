@@ -2,7 +2,8 @@
 layout: post
 title: "Adicionando itens como pendente no WordPress"
 date: 2021-07-19
-categories: [Tecnologia]
+categories: [Tecnologia, Tips and Tricks]
+historical: true
 ---
 Fala Pessoal! Tudo certo?
 

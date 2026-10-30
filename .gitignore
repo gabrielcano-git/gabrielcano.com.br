@@ -3,4 +3,10 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 *.xml
-Gemfile.lock
+
+.bundle/
+vendor/
+node_modules/
+test-results/
+playwright-report/
+assets/images/social-card.png

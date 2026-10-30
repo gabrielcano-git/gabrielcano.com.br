@@ -1,0 +1,12 @@
+<header class="page-header"><p class="eyebrow">Tecnologia, cultura e descobertas</p><h1>Blog{% if paginator.page > 1 %} · página {{ paginator.page }}{% endif %}</h1><p>Experiências práticas, ideias e leituras pelo caminho.</p><a href="{{ '/busca/' | relative_url }}">Buscar em todo o acervo</a></header>
+<div class="archive-list">
+  {% if paginator.page > 1 %}{% assign entries = paginator.posts %}{% else %}{% assign entries = site.posts | slice: 0, site.paginate %}{% endif %}
+  {% for post in entries %}{% include article-row.html post=post %}{% endfor %}
+</div>
+<nav class="pagination" aria-label="Paginação do blog">
+{% if paginator.page > 1 %}
+  {% if paginator.previous_page == 1 %}<a href="{{ '/blog/' | relative_url }}">← Artigos mais recentes</a>{% else %}<a href="{{ paginator.previous_page_path | relative_url }}">← Artigos mais recentes</a>{% endif %}
+  <span>Página {{ paginator.page }} de {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}<a href="{{ paginator.next_page_path | relative_url }}">Artigos anteriores →</a>{% endif %}
+{% elsif site.posts.size > site.paginate %}<span>Página 1</span><a href="{{ '/page/2/' | relative_url }}">Artigos anteriores →</a>{% endif %}
+</nav>

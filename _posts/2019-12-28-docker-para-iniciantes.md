@@ -2,7 +2,8 @@
 layout: post
 title: "Docker para iniciantes"
 date: 2019-12-28
-categories: [Tecnologia]
+categories: [Tecnologia, Tips and Tricks]
+historical: true
 ---
 
 Esse post é para pessoas que são iniciantes no Docker, como eu.
@@ -119,7 +120,9 @@ sudo docker run hello-world
 
 Você deverá ver algo como na imagem abaixo:
 
-![Docker para Iniciantes - Hello World Docker](https://gabrielcano.com.br/wp-content/uploads/2019/12/hello-world-docker.png)
+<!-- Mídia original a recuperar: https://gabrielcano.com.br/wp-content/uploads/2019/12/hello-world-docker.png -->
+
+<aside class="notice" aria-label="Nota sobre a imagem">A imagem original deste trecho não está disponível no acervo migrado.</aside>
 
 Hello World Docker
 
@@ -135,13 +138,13 @@ A máquina que eu utilizei foi essa: [https://docs.docker.com/compose/wordpress/
 
 Agora é relativamente simples. Você precisa criar uma pasta onde irá rodar o seu WordPress, por exemplo:
 
-# Cria uma pasta na pasta atual que você está
+## Cria uma pasta na pasta atual que você está
 
 ```bash
 mkdir wordpress
 ```
 
-# Entra na pasta criada
+## Entra na pasta criada
 
 ```bash
 cd wordpress
@@ -149,7 +152,7 @@ cd wordpress
 
 Nessa pasta você criará um arquivo com o nome docker-compose.yml
 
-# Cria o arquivo e já abre ele para você editar
+## Cria o arquivo e já abre ele para você editar
 
 ```bash
 nano docker-compose.yml

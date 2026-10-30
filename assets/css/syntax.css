@@ -5,7 +5,7 @@
   border-radius: 8px;
 }
 .highlight .c {
-  color: #75715e;
+  color: #b3b1ba;
 } /* Comment */
 .highlight .err {
   color: #960050;
@@ -21,22 +21,22 @@
   color: #f8f8f2;
 } /* Name */
 .highlight .o {
-  color: #f92672;
+  color: #ff78a8;
 } /* Operator */
 .highlight .p {
   color: #f8f8f2;
 } /* Punctuation */
 .highlight .cm {
-  color: #75715e;
+  color: #b3b1ba;
 } /* Comment.Multiline */
 .highlight .cp {
-  color: #75715e;
+  color: #b3b1ba;
 } /* Comment.Preproc */
 .highlight .c1 {
-  color: #75715e;
+  color: #b3b1ba;
 } /* Comment.Single */
 .highlight .cs {
-  color: #75715e;
+  color: #b3b1ba;
 } /* Comment.Special */
 .highlight .ge {
   font-style: italic;
@@ -51,7 +51,7 @@
   color: #66d9ef;
 } /* Keyword.Declaration */
 .highlight .kn {
-  color: #f92672;
+  color: #ff78a8;
 } /* Keyword.Namespace */
 .highlight .kp {
   color: #66d9ef;
@@ -108,13 +108,13 @@
   color: #f8f8f2;
 } /* Name.Property */
 .highlight .nt {
-  color: #f92672;
+  color: #ff78a8;
 } /* Name.Tag */
 .highlight .nv {
   color: #f8f8f2;
 } /* Name.Variable */
 .highlight .ow {
-  color: #f92672;
+  color: #ff78a8;
 } /* Operator.Word */
 .highlight .w {
   color: #f8f8f2;

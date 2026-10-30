@@ -2,7 +2,8 @@
 layout: post
 title: "Como colocar um login e senha no navegador"
 date: 2023-09-05
-categories: [Tecnologia]
+categories: [Tecnologia, Tips and Tricks]
+historical: true
 ---
 
 Em determinados projetos, é crucial implementar um sistema de Login e Senha diretamente no navegador para restringir o acesso ao seu site.

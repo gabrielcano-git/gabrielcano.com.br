@@ -9,7 +9,14 @@ No dia 17/08 apresentei minha palestra sobre como gerenciar projetos com intelig
 
 A palestra foi legal demais, a sala estava lotada e criei esse post para disponibilizar meus slides para todos, além do “Mega Prompt” que utilizei na apresentação.
 
+## Slides
+
+[Wordcamp rio 2024 – Gerenciando projetos com IA](https://www.canva.com/design/DAGLuPzELpE/epg-QO5qUBYCMBBhK8-Y0A/view?utm_content=DAGLuPzELpE&utm_campaign=designshare&utm_medium=embeds&utm_source=link) de Gabriel Cano
+
 ## Mega Prompt
+
+O exemplo abaixo usa a programação do WordCamp Rio 2024 e reflete o contexto da apresentação.
+
 
 ```
 Irei iniciar uma conversa com você. Sua base de conhecimento sobre a programação do evento Wordcamp Rio 2024 está descrita abaixo em Markdown:
@@ -166,7 +173,3 @@ R: As palestras que irão ocorrer no Bossa Nova Mall (WeWork) são:
 
 Sempre que uma pergunta for feita, caso não tenho informado em qual dia do evento estamos, pergunte o dia para que as respostas sejam condicionadas ao cronograma/agenda de cada um dos dias.
 ```
-
-## Slides
-
-[Wordcamp rio 2024 – Gerenciando projetos com IA](https://www.canva.com/design/DAGLuPzELpE/epg-QO5qUBYCMBBhK8-Y0A/view?utm_content=DAGLuPzELpE&utm_campaign=designshare&utm_medium=embeds&utm_source=link) de Gabriel Cano

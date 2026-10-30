@@ -1,0 +1,12 @@
+---
+layout: page
+title: Buscar no blog
+---
+<form class="search-form" role="search" data-index="{{ '/search.json' | relative_url }}">
+<label for="search-query">Buscar em todos os artigos</label>
+<input id="search-query" name="q" type="search" placeholder="WordPress, IA, leituras…" autocomplete="off" aria-describedby="search-status">
+<button type="submit">Buscar</button>
+</form>
+<p id="search-status" role="status" aria-live="polite">Digite um assunto para buscar no acervo.</p>
+<div id="search-results" class="archive-list"></div>
+<noscript><p>Ative JavaScript para usar a busca ou <a href="{{ '/blog/' | relative_url }}">navegue pelo blog</a>.</p></noscript>

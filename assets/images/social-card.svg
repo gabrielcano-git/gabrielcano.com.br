@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#101113"/>
+<rect x="850" y="80" width="260" height="390" rx="10" fill="#eeeae2" transform="rotate(4 980 275)"/>
+<text x="980" y="315" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="135" fill="#53397c">gc.</text>
+<text x="76" y="112" font-family="Arial,sans-serif" font-size="24" fill="#c7adff">GABRIEL CANO · DESENVOLVEDOR E ESCRITOR</text>
+<text x="70" y="250" font-family="Arial,sans-serif" font-size="76" fill="#f6f3ee">Código, ideias</text>
+<text x="70" y="345" font-family="Georgia,serif" font-style="italic" font-size="82" fill="#c7adff">e boas conversas.</text>
+<text x="76" y="455" font-family="Arial,sans-serif" font-size="25" fill="#b3b1ba">Desenvolvimento · WordPress · Inteligência artificial</text>
+<path d="M76 525H1124" stroke="#36363e"/>
+<text x="76" y="575" font-family="Arial,sans-serif" font-size="23" fill="#f6f3ee">gabrielcano.com.br</text>
+</svg>

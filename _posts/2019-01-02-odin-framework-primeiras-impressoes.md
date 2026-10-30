@@ -19,7 +19,7 @@ Estou desenvolvendo meu blog com ele e estou aplicando as melhorias em cima do f
 
 Bom, essa foi apenas uma visão rápida e geral o framework. Irei criar outro post em breve meio que “definitivo” sobre o [**Odin Framework**](http://wpod.in/).
 
-### Sobre o Odin Framework
+## Sobre o Odin Framework
 
 - Site: [http://wpod.in/](http://wpod.in/)
 - Demo: [http://demo.wpod.in/](http://demo.wpod.in/)

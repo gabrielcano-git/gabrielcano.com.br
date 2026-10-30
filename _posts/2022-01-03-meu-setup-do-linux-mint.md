@@ -2,7 +2,8 @@
 layout: post
 title: "Meu setup do Linux Mint"
 date: 2022-01-03
-categories: [Tecnologia]
+categories: [Tecnologia, Tips and Tricks]
+historical: true
 ---
 
 Recentemente tive de formatar meu computador e tive dificuldade de reinstalar todos as dependências.

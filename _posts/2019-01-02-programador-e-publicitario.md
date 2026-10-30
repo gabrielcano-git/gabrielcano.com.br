@@ -27,7 +27,9 @@ Acredito que quando você passa a trabalhar no mercado de publicidade, você é 
 
 Quando converso com pessoas que trabalham no mercado, a visão que eles tem do programador é algo estereotipado mais ou menos igual a essa imagem:
 
-![Imagem ilustrativa de um esteriótipo de programador](https://gabrielcano.com.br/wp-content/uploads/2016/12/programador.jpg)
+<!-- Mídia original a recuperar: https://gabrielcano.com.br/wp-content/uploads/2016/12/programador.jpg -->
+
+<aside class="notice" aria-label="Nota sobre a imagem">A imagem original deste trecho não está disponível no acervo migrado.</aside>
 
 ### **Devemos parar de nos enxergar como neandertals e acabar com esteriótipos!**
 
