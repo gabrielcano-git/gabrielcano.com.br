@@ -10,11 +10,11 @@ author:
   role: Desenvolvedor & escritor
   initials: GC
   bio: Desenvolvedor apaixonado por tecnologia, cinema e escrita. Compartilhando pensamentos e experiências pelo caminho.
-  github: gabrielcano
+  github: gabrielcano-git
 social:
   name: Gabriel Cano
   links:
-    - https://github.com/gabrielcano
+    - https://github.com/gabrielcano-git/
 markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/

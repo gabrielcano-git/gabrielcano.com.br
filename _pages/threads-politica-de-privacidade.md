@@ -146,7 +146,7 @@ Recomendamos a revisão periódica desta política. O uso continuado do site ap�
 
 Em caso de dúvidas, solicitações ou reclamações relacionadas a esta Política de Privacidade ou ao tratamento dos seus dados pessoais, entre em contato conosco:
 
-- **Contato:** [perfil de Gabriel Cano no GitHub](https://github.com/gabrielcano)
+- **Contato:** [perfil de Gabriel Cano no GitHub](https://github.com/gabrielcano-git/)
 - **Site:** [gabrielcano.com.br](https://gabrielcano.com.br/)
 - **Responsável:** Gabriel Cano
 
