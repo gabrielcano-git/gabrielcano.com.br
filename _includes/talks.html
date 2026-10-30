@@ -9,7 +9,7 @@
       <summary>Descrição completa</summary>
       {{ talk.description | markdownify }}
     </details>
-    <a href="{{ talk.speakerdeck_url | escape }}">Ver slides no Speaker Deck <span aria-hidden="true">↗</span></a>
+    <a href="{{ talk.speakerdeck_url | escape }}" target="_blank" rel="noopener noreferrer">Ver slides no Speaker Deck <span aria-hidden="true">↗</span></a>
     {% if talk.post_slug %}
       {% assign talk_post = site.posts | where: 'slug', talk.post_slug | first %}
       {% if talk_post %}<a href="{{ talk_post.url | relative_url }}">Ver relato e materiais no blog <span aria-hidden="true">↗</span></a>{% endif %}
