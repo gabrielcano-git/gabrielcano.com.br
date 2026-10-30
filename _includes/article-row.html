@@ -1,0 +1,4 @@
+<a class="article" href="{{ include.post.url | relative_url }}"{% if include.filter %} data-topic="{% if include.post.categories contains 'Leituras' %}culture{% else %}tech{% endif %}"{% endif %}>
+  <span class="label">{% if include.post.categories contains 'Leituras' %}Cultura e leituras{% else %}Tecnologia{% endif %}<br><time datetime="{{ include.post.date | date_to_xmlschema }}">{% include date.html date=include.post.date %}</time></span>
+  <div><{{ include.heading | default: 'h2' }}>{{ include.post.title | escape }}</{{ include.heading | default: 'h2' }}><p>{{ include.post.description | default: include.post.excerpt | strip_html | truncate: 180 | escape }}</p></div><span class="arrow" aria-hidden="true">↗</span>
+</a>

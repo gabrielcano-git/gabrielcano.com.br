@@ -1,32 +1,5 @@
 ---
 layout: default
 ---
-
-<h1 class="section-title">Categoria: {{ page.category_name }}</h1>
-
-<div class="post-list">
-  {% assign cat_posts = site.posts | where_exp: "post", "post.categories contains page.category_name" %}
-  {% for post in cat_posts %}
-  <article class="post-card">
-    {% if post.image %}
-    <a href="{{ post.url | relative_url }}" class="post-thumb">
-      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
-    </a>
-    {% endif %}
-    <div class="post-card-body">
-      <h2 class="post-card-title">
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      </h2>
-      <div class="post-meta">
-        <time datetime="{{ post.date | date_to_xmlschema }}">
-          {{ post.date | date: "%d de %B de %Y" }}
-        </time>
-      </div>
-      {% if post.excerpt %}
-      <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
-      {% endif %}
-      <a href="{{ post.url | relative_url }}" class="read-more">Ler mais &rarr;</a>
-    </div>
-  </article>
-  {% endfor %}
-</div>
+<header class="page-header"><p class="eyebrow">Explore o acervo</p><h1>{{ page.category_title | default: page.category_name | escape }}</h1></header>
+<div class="archive-list">{% assign entries = site.posts | where_exp: 'p', 'p.categories contains page.category_name' %}{% for post in entries %}{% include article-row.html post=post %}{% else %}<p>Ainda não há artigos nesta categoria. <a href="{{ '/blog/' | relative_url }}">Explore todos os artigos</a> ou <a href="{{ '/busca/' | relative_url }}">busque no acervo</a>.</p>{% endfor %}</div>

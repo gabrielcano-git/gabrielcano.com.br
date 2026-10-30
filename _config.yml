@@ -1,47 +1,53 @@
 title: Gabriel Cano
-description: Blog pessoal sobre tecnologia, desenvolvimento e palestras.
+tagline: Desenvolvimento, WordPress e tecnologia
+description: Experiências de Gabriel Cano com desenvolvimento, WordPress e inteligência artificial, além de palestras, leituras e ideias pelo caminho.
 url: "https://gabrielcano.com.br"
 baseurl: ""
+lang: pt-BR
+locale: pt_BR
 author:
   name: Gabriel Cano
-  role: Desenvolvedor & Escritor
+  role: Desenvolvedor & escritor
+  initials: GC
   bio: Desenvolvedor apaixonado por tecnologia, cinema e escrita. Compartilhando pensamentos e experiências pelo caminho.
   github: gabrielcano
-  twitter:
-  instagram:
-
-# Build
+social:
+  name: Gabriel Cano
+  links:
+    - https://github.com/gabrielcano
 markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
-
-# Plugins
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-feed
-
-# Pagination
 paginate: 10
 paginate_path: "/page/:num/"
-
-# Collections
 collections:
   pages:
     output: true
     permalink: /:path/
-
-# Exclude
 exclude:
   - Gemfile
   - Gemfile.lock
+  - Dockerfile
   - docker-compose.yml
   - import.rb
-  - "*.xml"
-
-# Defaults
+  - README.md
+  - api
+  - docs
+  - scripts
+  - tools
+  - node_modules
+  - package.json
+  - package-lock.json
 defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/social-card.png
   - scope:
       path: ""
       type: posts
@@ -52,16 +58,19 @@ defaults:
       type: pages
     values:
       layout: page
-
+# Integração opcional: só habilitar após validar resposta, autenticação e CORS.
+social_updates_enabled: false
 social_updates_api_url: "https://gg6lcn3961.execute-api.us-east-1.amazonaws.com/default/threads-api"
-
-# Navigation
 nav:
   - title: Início
     url: /
-  - title: Tecnologia
-    url: /categoria/tecnologia/
-  - title: Tips and Tricks
-    url: /categoria/tips-and-tricks/
-  - title: Newsletter
-    url: /categoria/newsletter/
+  - title: Sobre
+    url: /sobre/
+  - title: Projetos
+    url: /projetos/
+  - title: Palestras
+    url: /palestras/
+  - title: Blog
+    url: /blog/
+  - title: Buscar
+    url: /busca/

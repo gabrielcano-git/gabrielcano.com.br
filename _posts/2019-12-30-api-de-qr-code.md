@@ -2,7 +2,8 @@
 layout: post
 title: "API de QR Code"
 date: 2019-12-30
-categories: [Tecnologia]
+categories: [Tecnologia, Tips and Tricks]
+historical: true
 ---
 
 Existe um jeito simples e fácil de usar uma API de QR code para seus projetos.

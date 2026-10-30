@@ -2,12 +2,15 @@
 layout: post
 title: "Erro ao criar postagem WordPress"
 date: 2023-09-12
-categories: [Tecnologia]
+categories: [Tecnologia, Tips and Tricks]
+historical: true
 ---
 
 Sabe quando você está tentando fazer algo que parece fácil, mas aí…
 
-![](https://gabrielcano.com.br/wp-content/uploads/2023/09/image-1.png)
+<!-- Mídia original a recuperar: https://gabrielcano.com.br/wp-content/uploads/2023/09/image-1.png -->
+
+<aside class="notice" aria-label="Nota sobre a imagem">A imagem original deste trecho não está disponível no acervo migrado.</aside>
 
 Bom, foi mais ou menos o que aconteceu quando decidi migrar um site outro dia.
 

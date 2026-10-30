@@ -2,7 +2,8 @@
 layout: post
 title: "Utilizando Docker sem sudo"
 date: 2021-11-09
-categories: [Tecnologia]
+categories: [Tecnologia, Tips and Tricks]
+historical: true
 ---
 
 É um pouco chato ter que utilizar o **sudo** toda hora que você quer executar um container ou um compando do docker, mas é bem simples de resolver esse problema.

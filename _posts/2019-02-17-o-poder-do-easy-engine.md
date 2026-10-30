@@ -2,7 +2,8 @@
 layout: post
 title: "O poder do Easy Engine"
 date: 2019-02-17
-categories: [Tecnologia]
+categories: [Tecnologia, Tips and Tricks]
+historical: true
 ---
 
 Olá pessoas!
@@ -47,7 +48,7 @@ Para instalar o Easy Engine no servidor é fácil e simples.
 
 Execute esses comandos:
 
-# Install EasyEngine on Linux
+## Install EasyEngine on Linux
 
 wget -qO ee rt.cx/ee4 && sudo bash ee
 

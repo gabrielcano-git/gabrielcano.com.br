@@ -2,7 +2,8 @@
 layout: post
 title: "Criando um usuário FTP no WordOps"
 date: 2023-09-19
-categories: [Tecnologia]
+categories: [Tecnologia, Tips and Tricks]
+historical: true
 ---
 
 Quando eu trabalhava com o Easy Engine, sempre enfrentava desafios ao fornecer acesso FTP aos meus clientes. Tinha dificuldade em criar, de forma simples e descomplicada, os dados de acesso para que eles pudessem acessar seus conteúdos.

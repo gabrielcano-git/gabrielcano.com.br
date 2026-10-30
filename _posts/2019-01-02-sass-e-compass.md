@@ -2,7 +2,8 @@
 layout: post
 title: "SASS e Compass"
 date: 2019-01-02
-categories: [Tecnologia]
+categories: [Tecnologia, Tips and Tricks]
+historical: true
 ---
 
 Fala Galera, beleza?
@@ -23,7 +24,7 @@ Bom então, SASS é uma linguagem de programação e também um Framework. Com e
 
 O SASS nos da a possibilidade de utilizar variáveis no CSS, dessa forma definimos um valor X apenas uma vez e setamos as variáveis nas classes, IDs, etc.
 
-### Exemplo real de uso do SASS:
+## Exemplo real de uso do SASS:
 
 ```scss
 $screen-sm-min: 768px; // Definindo a variável
@@ -57,6 +58,8 @@ Após isso para processar o SASS costumo utilizar o Compass. Ele é muito massa!
 
 Para comprimir é basicamente acessar o diretório de configuração do COMPASS e compilá-lo.
 
-![fazendo-a-compilacao-do-sass-com-compass-via-shell](https://gabrielcano.com.br/wp-content/uploads/2014/12/fazendo-a-compilacao-do-sass-com-compass-via-shell.png)
+<!-- Mídia original a recuperar: https://gabrielcano.com.br/wp-content/uploads/2014/12/fazendo-a-compilacao-do-sass-com-compass-via-shell.png -->
+
+<aside class="notice" aria-label="Nota sobre a imagem">A imagem original deste trecho não está disponível no acervo migrado.</aside>
 
 Bom, é isso! Vou trazer novidades sobre [Odin](http://wpod.in/), [SASS](http://sass-lang.com/), [COMPASS](http://compass-style.org/) e etc em breve!

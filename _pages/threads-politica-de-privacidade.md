@@ -4,8 +4,6 @@ title: "Política de Privacidade"
 date: 2026-03-30
 ---
 
-# POLÍTICA DE PRIVACIDADE
-
 **Aplicativo de Integração com Threads (Meta)**
 
 _Última atualização: 30 de março de 2025_
@@ -148,9 +146,9 @@ Recomendamos a revisão periódica desta política. O uso continuado do site ap�
 
 Em caso de dúvidas, solicitações ou reclamações relacionadas a esta Política de Privacidade ou ao tratamento dos seus dados pessoais, entre em contato conosco:
 
-- **E-mail:** [seu-email@dominio.com]
-- **Site:** [https://www.seusite.com.br]
-- **Responsável:** [Seu Nome ou Razão Social]
+- **Contato:** [perfil de Gabriel Cano no GitHub](https://github.com/gabrielcano)
+- **Site:** [gabrielcano.com.br](https://gabrielcano.com.br/)
+- **Responsável:** Gabriel Cano
 
 ---
 

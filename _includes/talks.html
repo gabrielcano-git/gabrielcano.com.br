@@ -1,0 +1,14 @@
+<div class="talks">
+{% for talk in site.data.talks limit:include.limit %}
+  {% assign talk_post = site.posts | where: 'slug', talk.slug | first %}
+  {% if talk_post %}
+  <article class="talk{% if forloop.first %} highlight{% endif %}">
+    <div class="meta"><span>{{ talk.event | escape }}</span><span>{{ talk.year }}</span></div>
+    <h{{ include.heading | default: 3 }}>{{ talk.title | escape }}</h{{ include.heading | default: 3 }}>
+    <p>{{ talk.description | escape }}</p>
+    <a href="{{ talk_post.url | relative_url }}">Ver palestra e materiais <span aria-hidden="true">↗</span></a>
+    {% if include.resources %}<a href="{{ talk.resource_url | escape }}">{{ talk.resource | escape }} <span aria-hidden="true">↗</span></a>{% endif %}
+  </article>
+  {% endif %}
+{% endfor %}
+</div>
