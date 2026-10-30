@@ -153,7 +153,7 @@ nav a:hover {
   gap: 18px;
   border: 1px solid var(--line);
 }
-.primary {
+.button.primary {
   background: var(--accent);
   color: #21182c;
   border-color: var(--accent);
@@ -266,6 +266,7 @@ section.content {
   color: var(--muted);
   font-size: 12px;
 }
+.talk h2,
 .talk h3 {
   font-size: 26px;
   line-height: 1.25;
@@ -284,6 +285,34 @@ section.content {
   font-size: 13px;
   font-weight: 700;
   padding-block: 10px;
+}
+.talk-embed {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 8px;
+  margin-top: 20px;
+  background: #fff;
+}
+.talk-description {
+  width: 100%;
+  margin-bottom: 16px;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+.talk-description summary {
+  cursor: pointer;
+  padding-block: 10px;
+  font-weight: 700;
+}
+.talk-description p {
+  max-width: none;
+  margin-block: 16px;
+}
+.talk-description a {
+  font-size: inherit;
+  padding: 0;
 }
 .talk.highlight {
   background: var(--accent);
@@ -555,6 +584,7 @@ footer .wrap {
   .talk {
     padding: 24px;
   }
+  .talk h2,
   .talk h3 {
     margin-top: 26px;
   }

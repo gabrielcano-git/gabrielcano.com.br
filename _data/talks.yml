@@ -1,21 +1,167 @@
-- slug: palestra-gerenciando-projetos-com-ia
-  title: Gerenciando projetos com IA
-  event: WordCamp Rio
-  year: 2024
-  description: Os slides e o prompt que acompanharam minha palestra sobre inteligência artificial na gestão de projetos.
-  resource: Slides
-  resource_url: https://www.canva.com/design/DAGLuPzELpE/epg-QO5qUBYCMBBhK8-Y0A/view
-- slug: palestra-sobre-sage-framework-no-wordcamp-floripa-2021
-  title: Desenvolvimento com Sage Framework
-  event: WordCamp Floripa
-  year: 2021
-  description: Uma conversa sobre o Sage no desenvolvimento de temas WordPress, com a gravação da palestra.
-  resource: Vídeo da palestra
-  resource_url: https://youtu.be/lafQJN7IoIY?t=3570
-- slug: palestra-trabalhando-com-criatividade
-  title: Trabalhando com criatividade
-  event: Material de palestra
-  year: 2024
-  description: Apresentação de Gabriel Cano sobre criatividade. Os slides estão disponíveis para consulta.
-  resource: Slides
-  resource_url: https://www.canva.com/design/DAGM0bIouqI/7X6Jmn_y4o_E4gyogO4UYg/view
+# Fonte: https://speakerdeck.com/gabrielcano — conferida em 2026-10-30.
+# Títulos e descrições copiados das páginas públicas. A atualização é editorial, não automática.
+- slug: criando-blocos-wordpress-utilizando-agentes-de-ia
+  title: "Criando Blocos WordPress utilizando Agentes de IA"
+  speakerdeck_url: https://speakerdeck.com/gabrielcano/criando-blocos-wordpress-utilizando-agentes-de-ia
+  speakerdeck_id: f8fd7b8a63924f05b3a84f947ef64366
+  summary: "Como utilizar agentes de Inteligência Artificial para acelerar o desenvolvimento de blocos personalizados no WordPress?"
+  description: |-
+    **Como utilizar agentes de Inteligência Artificial para acelerar o desenvolvimento de blocos personalizados no WordPress?**
+
+    Nesta palestra, exploramos como os agentes de IA podem transformar o fluxo de desenvolvimento WordPress, desde a interpretação de layouts até a implementação e os testes de blocos personalizados.
+
+    Vamos conhecer ferramentas, conceitos e integrações que ajudam desenvolvedores a trabalhar de maneira mais produtiva, aproveitando a IA como uma aliada na construção de soluções.
+
+    **O que você vai encontrar nesta apresentação:**
+
+    O que são agentes de IA e como funcionam; <br>
+    Ferramentas de CLI e utilização de Markdown para fornecer contexto aos agentes; <br>
+    Integração de IA com IDEs para auxiliar na escrita de código; <br>
+    Introdução ao Model Context Protocol (MCP) e suas possibilidades de integração; <br>
+    Desenvolvimento prático de um bloco WordPress a partir de um layout no Figma; <br>
+    Testes do bloco em um ambiente WordPress utilizando Docker.
+
+    **Live Coding:** demonstração do processo de criação de um bloco WordPress, passando pelo layout no Figma, geração e implementação do código e testes no ambiente local.
+
+    **Público-alvo:** desenvolvedores WordPress, profissionais de tecnologia e pessoas interessadas em aplicar Inteligência Artificial ao desenvolvimento de software.
+
+    **Sobre o palestrante:**
+
+    Gabriel Cano é Tech Lead, desenvolvedor Full Stack e entusiasta de tecnologia, Inteligência Artificial e da comunidade WordPress.
+
+    Site: [https://gabrielcano.com.br/](https://gabrielcano.com.br/)
+- slug: utilizando-agentes-de-ia-para-ser-um-dev-melhor
+  title: "Utilizando Agentes de IA para ser um DEV Melhor"
+  speakerdeck_url: https://speakerdeck.com/gabrielcano/utilizando-agentes-de-ia-para-ser-um-dev-melhor
+  speakerdeck_id: a562625443e64de39659fea925223c35
+  summary: "A Inteligência Artificial está transformando a maneira como desenvolvemos software, mas será que estamos aproveitando todo o seu potencial ou apenas utilizando ferramentas para gerar código?"
+  description: |-
+    A Inteligência Artificial está transformando a maneira como desenvolvemos software, mas será que estamos aproveitando todo o seu potencial ou apenas utilizando ferramentas para gerar código?
+
+    Nesta palestra, compartilho experiências práticas sobre como utilizar agentes de IA para potencializar o trabalho de desenvolvimento, aumentar a produtividade e melhorar a qualidade das entregas.
+
+    Exploramos desde os conceitos fundamentais dos agentes de IA até sua aplicação no dia a dia, passando por ferramentas de linha de comando, IDEs agênticas, soluções open source e comerciais, como Claude Code, Gemini CLI e Cursor.
+
+    Também abordamos o uso de MCPs (Model Context Protocol) para conectar agentes a ferramentas externas, estratégias para fornecer contexto sobre projetos e técnicas como TDD e BDD para orientar a geração de código de maneira mais eficiente.
+
+    Para fechar, uma demonstração prática de como utilizar agentes de IA em um projeto real, mostrando que o segredo não está apenas em escrever prompts, mas em saber fornecer contexto, estruturar requisitos e conduzir os agentes para alcançar melhores resultados.
+
+    O objetivo é mostrar que a IA não substitui o bom desenvolvedor: ela amplia suas capacidades.
+
+    Evento: PHPeste 2025 <br>
+    Temas: Inteligência Artificial, Agentes de IA, Desenvolvimento de Software, Claude Code, Gemini CLI, Cursor, MCP, TDD e BDD.
+- slug: observabilidade-nao-fique-perdido-no-escuro
+  title: "Observabilidade: Não Fique Perdido no Escuro"
+  speakerdeck_url: https://speakerdeck.com/gabrielcano/observabilidade-nao-fique-perdido-no-escuro
+  speakerdeck_id: ac0a129263384ccca788e56d2d5d7095
+  summary: "Você realmente sabe o que está acontecendo dentro das suas aplicações ou só descobre quando alguma coisa quebra?"
+  description: |-
+    **Você realmente sabe o que está acontecendo dentro das suas aplicações ou só descobre quando alguma coisa quebra?**
+
+    Em sistemas cada vez mais complexos e distribuídos, monitorar CPU, memória e disponibilidade já não é suficiente. Precisamos entender o comportamento das aplicações, identificar problemas, investigar suas causas e, principalmente, agir antes que eles afetem nossos usuários.
+
+    Nesta palestra, exploramos os fundamentos da **Observabilidade** e como utilizar logs, métricas e traces para transformar dados técnicos em informações que ajudam a prevenir incidentes, investigar falhas e melhorar a confiabilidade dos sistemas.
+
+    **O que você vai encontrar nesta apresentação:**
+
+    O que é observabilidade e por que ela é importante no desenvolvimento de software; <br>
+    As diferenças entre monitoramento tradicional e observabilidade; <br>
+    Como a observabilidade pode ajudar a identificar problemas em integrações e aplicações; <br>
+    Os três pilares da observabilidade: logs, métricas e traces; <br>
+    Os quatro Golden Signals: latência, tráfego, erros e saturação; <br>
+    Logs estruturados, níveis de severidade e contextualização de eventos; <br>
+    Rastreamento distribuído utilizando traces, spans e eventos; <br>
+    Introdução ao OpenTelemetry (OTel) e à padronização da coleta de telemetria; <br>
+    Ferramentas do ecossistema, como Elasticsearch, Logstash, Kibana, Prometheus, Grafana e Jaeger; <br>
+    Soluções SaaS de observabilidade, como Datadog e New Relic.
+
+    **Por que assistir?**
+
+    Observabilidade não é apenas sobre descobrir por que um sistema parou de funcionar. É sobre compreender o comportamento das aplicações, correlacionar informações e utilizar esses dados para tomar decisões melhores.
+
+    Uma boa estratégia de observabilidade pode até ajudar a identificar problemas enfrentados por clientes e parceiros antes que eles próprios percebam.
+
+    **Público-alvo:** desenvolvedores de software, profissionais de DevOps, SREs, Tech Leads e qualquer pessoa interessada em melhorar a confiabilidade, o monitoramento e a operação de aplicações.
+
+    **Sobre o palestrante:**
+
+    Gabriel Cano é Tech Lead e desenvolvedor Full Stack, com experiência em desenvolvimento de software, arquitetura de aplicações, integrações e observabilidade.
+
+    Site: [https://gabrielcano.com.br/](https://gabrielcano.com.br/)
+
+    Contato: [gabriel@gabrielcano.com.br](mailto:gabriel@gabrielcano.com.br)
+- slug: wordpress-translation-day-contribuindo-com-o-open-source-na-studio-visual
+  title: "WordPress Translation Day: Contribuindo com o Open Source na Studio Visual"
+  speakerdeck_url: https://speakerdeck.com/gabrielcano/wordpress-translation-day-contribuindo-com-o-open-source-na-studio-visual
+  speakerdeck_id: ce5ca65f3d1c490d9c4ba13585a221eb
+  summary: "Você sabia que não precisa escrever uma única linha de código para começar a contribuir com o WordPress?"
+  description: |-
+    **Você sabia que não precisa escrever uma única linha de código para começar a contribuir com o WordPress?**
+
+    O WordPress é um dos maiores projetos open source do mundo, construído e mantido por uma comunidade global de pessoas que colaboram de diferentes maneiras. E uma das formas mais acessíveis de participar dessa comunidade é por meio da tradução.
+
+    Em 2024, enquanto trabalhava na **Studio Visual**, organizei um **Translation Day interno** com o objetivo de incentivar os desenvolvedores da empresa a contribuírem ativamente com o ecossistema WordPress.
+
+    A proposta foi mostrar que contribuir com software livre vai muito além de desenvolver funcionalidades ou corrigir bugs. Traduções, documentação, testes, acessibilidade, design e suporte também são fundamentais para a evolução de um projeto colaborativo.
+
+    **O que você vai encontrar nesta apresentação:**
+
+    O que é um Translation Day e sua importância para a comunidade WordPress; <br>
+    As diferentes possibilidades de contribuição para o projeto WordPress; <br>
+    Por que a tradução é uma excelente porta de entrada para novos contribuidores; <br>
+    Como criar uma conta no WordPress.org e começar a participar da comunidade; <br>
+    Como utilizar o glossário oficial de traduções para português brasileiro; <br>
+    Como utilizar o Poedit para auxiliar no processo de tradução; <br>
+    Orientações para dar os primeiros passos e contribuir com o ecossistema WordPress.
+
+    **Mais do que traduzir: construir uma cultura de contribuição.**
+
+    O principal objetivo dessa iniciativa foi aproximar os desenvolvedores da Studio Visual da comunidade WordPress, estimulando uma cultura de colaboração, aprendizado contínuo e participação em projetos open source.
+
+    Contribuir com software livre é também uma oportunidade de desenvolver novas habilidades, conhecer outros profissionais e participar da construção de ferramentas utilizadas por milhões de pessoas.
+
+    **Recursos apresentados:**
+
+    Comunidade de contribuidores: [https://make.wordpress.org/](https://make.wordpress.org/) <br>
+    Criação de conta: [https://login.wordpress.org/register](https://login.wordpress.org/register) <br>
+    Glossário de traduções PT-BR: [https://translate.wordpress.org/locale/pt-br/default/glossary/](https://translate.wordpress.org/locale/pt-br/default/glossary/) <br>
+    Poedit: [https://poedit.net/](https://poedit.net/)
+
+    **Público-alvo:** desenvolvedores WordPress, profissionais de tecnologia, estudantes e pessoas interessadas em contribuir com projetos open source, mesmo sem experiência prévia em contribuições.
+
+    **Sobre o palestrante:**
+
+    Gabriel Cano é Tech Lead, desenvolvedor Full Stack, mentor e participante ativo da comunidade WordPress. Possui experiência em desenvolvimento de software, liderança técnica e iniciativas de compartilhamento de conhecimento.
+
+    **Evento:** Translation Day — Studio Visual
+
+    **Ano:** 2024
+
+    **Formato:** Encontro interno de incentivo à contribuição open source.
+
+    Site: [https://gabrielcano.com.br/](https://gabrielcano.com.br/)
+- slug: wordcamp-rio-2024-gerenciando-projetos-com-ia
+  title: "Wordcamp Rio 2024 - Gerenciando Projetos com IA"
+  speakerdeck_url: https://speakerdeck.com/gabrielcano/wordcamp-rio-2024-gerenciando-projetos-com-ia
+  speakerdeck_id: 8c306931d73749e380eb16b965456907
+  summary: "Essa palestra é ideal para todos os profissionais que gostariam de otimizar o uso das ferramentas de Inteligência Artificial no dia-a-dia de seu trabalho."
+  description: |-
+    Essa palestra é ideal para todos os profissionais que gostariam de otimizar o uso das ferramentas de Inteligência Artificial no dia-a-dia de seu trabalho.
+
+    Link da apresentação no Youtube: [https://www.youtube.com/watch?v=i4fwNgXXTzA](https://www.youtube.com/watch?v=i4fwNgXXTzA)
+  post_slug: palestra-gerenciando-projetos-com-ia
+- slug: trabalhando-com-criatividade
+  title: "Trabalhando com Criatividade"
+  speakerdeck_url: https://speakerdeck.com/gabrielcano/trabalhando-com-criatividade
+  speakerdeck_id: b1f19e95102641528a5972177d72f6be
+  summary: "Palestra ministrada aos alunos de Marketing da ETEC Camargo Aranha. O objetivo foi demonstrar como o desenvolvimento da criatividade durante o curso pode ser uma ferramenta extremamente útil para toda a vida profissional."
+  description: |-
+    Palestra ministrada aos alunos de Marketing da ETEC Camargo Aranha. O objetivo foi demonstrar como o desenvolvimento da criatividade durante o curso pode ser uma ferramenta extremamente útil para toda a vida profissional.
+  post_slug: palestra-trabalhando-com-criatividade
+- slug: mercado-de-ti-para-iniciantes-2024
+  title: "Mercado de TI para Iniciantes 2024"
+  speakerdeck_url: https://speakerdeck.com/gabrielcano/mercado-de-ti-para-iniciantes-2024
+  speakerdeck_id: 59f7ab7874754f7da2dbcad21891e4f8
+  summary: "Esta apresentação teve como foco os alunos da rede estadual de São Paulo ingressantes no curso técnico de Informática. O objetivo principal foi inspirá-los e mostrar o vasto leque de oportunidades e caminhos que a área de tecnologia oferece."
+  description: |-
+    Esta apresentação teve como foco os alunos da rede estadual de São Paulo ingressantes no curso técnico de Informática. O objetivo principal foi inspirá-los e mostrar o vasto leque de oportunidades e caminhos que a área de tecnologia oferece.

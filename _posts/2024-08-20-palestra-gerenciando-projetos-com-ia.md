@@ -11,7 +11,7 @@ A palestra foi legal demais, a sala estava lotada e criei esse post para disponi
 
 ## Slides
 
-[Wordcamp rio 2024 – Gerenciando projetos com IA](https://www.canva.com/design/DAGLuPzELpE/epg-QO5qUBYCMBBhK8-Y0A/view?utm_content=DAGLuPzELpE&utm_campaign=designshare&utm_medium=embeds&utm_source=link) de Gabriel Cano
+[Wordcamp rio 2024 – Gerenciando projetos com IA](https://speakerdeck.com/gabrielcano/wordcamp-rio-2024-gerenciando-projetos-com-ia) de Gabriel Cano
 
 ## Mega Prompt
 

@@ -55,6 +55,13 @@ const server = http.createServer((req, res) => {
     const page = await browser.newPage({
       viewport: { width: 1440, height: 1000 },
     });
+    // External players are checked separately; site checks must work offline.
+    await page.route("https://speakerdeck.com/player/**", (route) =>
+      route.fulfill({
+        contentType: "text/html",
+        body: "<!doctype html><title>Slides</title>",
+      }),
+    );
     page.on("pageerror", (error) => errors.push(error.message));
     // Every generated page, local link, fragment and asset must exist. Also catch metadata regressions.
     for (const file of pages) {
@@ -136,6 +143,7 @@ const server = http.createServer((req, res) => {
         "/",
         "/blog/",
         "/palestras/",
+        "/contato/",
         "/busca/",
         "/2024/08/20/palestra-gerenciando-projetos-com-ia/",
         "/2026/03/17/a-essencia-do-caos-em-adeus-eri/",
@@ -148,6 +156,20 @@ const server = http.createServer((req, res) => {
           false,
           `${route}: overflow at ${width}`,
         );
+        if (route === "/palestras/") {
+          await page.locator(".talk-description").evaluateAll((items) =>
+            items.forEach((item) => {
+              item.open = true;
+            }),
+          );
+          assert.equal(
+            await page.evaluate(
+              () => document.documentElement.scrollWidth > innerWidth,
+            ),
+            false,
+            `expanded descriptions: overflow at ${width}`,
+          );
+        }
         await page.addScriptTag({
           path: require.resolve("axe-core/axe.min.js"),
         });
@@ -177,7 +199,75 @@ const server = http.createServer((req, res) => {
           fullPage: true,
         });
     }
+    await page.goto(origin + "/contato/");
+    const github = page.getByRole("link", { name: "Meu perfil no GitHub" });
+    const assertButtonContrast = async (state) => {
+      const contrast = await github.evaluate((el) => {
+        const style = getComputedStyle(el);
+        const luminance = (color) => {
+          const values = color
+            .match(/[\d.]+/g)
+            .slice(0, 3)
+            .map((v) => {
+              const channel = Number(v) / 255;
+              return channel <= 0.04045
+                ? channel / 12.92
+                : ((channel + 0.055) / 1.055) ** 2.4;
+            });
+          return values[0] * 0.2126 + values[1] * 0.7152 + values[2] * 0.0722;
+        };
+        const text = luminance(style.color);
+        const background = luminance(style.backgroundColor);
+        return (
+          (Math.max(text, background) + 0.05) /
+          (Math.min(text, background) + 0.05)
+        );
+      });
+      assert.ok(
+        contrast >= 4.5,
+        `GitHub button ${state}: contrast ${contrast}`,
+      );
+    };
+    await assertButtonContrast("normal");
+    await github.hover();
+    await assertButtonContrast("hover");
+    await github.focus();
+    await assertButtonContrast("focus");
+    report.interactions.push(
+      "GitHub contact button contrast >= 4.5:1 in normal, hover and focus states",
+    );
+    await page.goto(origin + "/palestras/");
+    assert.equal(await page.locator(".talk").count(), 7);
+    assert.equal(await page.locator(".talk-embed").count(), 7);
+    for (const talk of await page.locator(".talk").all()) {
+      const slides = talk.getByRole("link", {
+        name: "Ver slides no Speaker Deck",
+      });
+      assert.match(
+        await slides.getAttribute("href"),
+        /^https:\/\/speakerdeck\.com\/gabrielcano\//,
+      );
+      const frame = talk.locator("iframe");
+      assert.match(
+        await frame.getAttribute("src"),
+        /^https:\/\/speakerdeck\.com\/player\/[a-f0-9]{32}$/,
+      );
+      assert.equal(
+        await frame.getAttribute("title"),
+        `Slides: ${await talk.locator("h2").innerText()}`,
+      );
+      assert.equal(await frame.getAttribute("loading"), "lazy");
+    }
+    const description = page.locator(".talk-description").first();
+    await description.locator("summary").focus();
+    await page.keyboard.press("Enter");
+    assert.equal(await description.evaluate((el) => el.open), true);
+    report.interactions.push(
+      "seven Speaker Deck talks, accessible responsive lazy players, direct slide links and keyboard descriptions",
+    );
     await page.goto(origin);
+    assert.equal(await page.locator(".talk").count(), 2);
+    assert.equal(await page.locator(".talk-embed").count(), 0);
     await page.getByRole("button", { name: "Cultura & leituras" }).click();
     assert.equal(await page.locator("[data-topic]:visible").count(), 1);
     await page.getByRole("button", { name: "Tecnologia", exact: true }).click();
@@ -185,6 +275,8 @@ const server = http.createServer((req, res) => {
     await page.getByRole("button", { name: "Tudo", exact: true }).click();
     assert.equal(await page.locator("[data-topic]:visible").count(), 3);
     await page.setViewportSize({ width: 390, height: 844 });
+    // Start at the mobile viewport before testing keys, after resize cleanup.
+    await page.goto(origin);
     await page.getByRole("button", { name: "Abrir menu" }).focus();
     await page.keyboard.press("Enter");
     assert.equal(
@@ -192,6 +284,13 @@ const server = http.createServer((req, res) => {
       "true",
     );
     await page.keyboard.press("Tab");
+    assert.equal(
+      await page.evaluate(
+        () => document.activeElement.closest("#site-nav") !== null,
+      ),
+      true,
+      "Tab enters the open navigation",
+    );
     await page.keyboard.press("Escape");
     assert.equal(
       await page.locator(".nav-toggle").getAttribute("aria-expanded"),
@@ -261,10 +360,32 @@ const server = http.createServer((req, res) => {
       javaScriptEnabled: false,
       viewport: { width: 390, height: 844 },
     });
+    await noJS.route("https://speakerdeck.com/player/**", (route) =>
+      route.fulfill({
+        contentType: "text/html",
+        body: "<!doctype html><title>Slides</title>",
+      }),
+    );
     const plain = await noJS.newPage();
     await plain.goto(origin);
     assert.equal(await plain.locator("[data-topic]:visible").count(), 3);
     assert.ok(await plain.locator(".site-nav").isVisible());
+    await plain.goto(origin + "/palestras/");
+    assert.equal(await plain.locator(".talk").count(), 7);
+    await plain.locator(".talk-description summary").first().click();
+    assert.equal(
+      await plain
+        .locator(".talk-description")
+        .first()
+        .evaluate((el) => el.open),
+      true,
+    );
+    assert.equal(
+      await plain
+        .getByRole("link", { name: "Ver slides no Speaker Deck" })
+        .count(),
+      7,
+    );
     await noJS.close();
     assert.deepEqual(errors, []);
     report.interactions.push(
