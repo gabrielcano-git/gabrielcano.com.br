@@ -747,6 +747,32 @@ a:hover {
 .footer-links a {
   padding-block: 10px;
 }
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+.social-links li {
+  min-width: 0;
+}
+.social-links a {
+  display: block;
+  height: 100%;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+.social-links a:hover {
+  background: var(--panel);
+}
+.social-handle {
+  display: block;
+  color: var(--muted);
+  font-size: 14px;
+}
 .page-header {
   padding-block: 55px 24px;
 }

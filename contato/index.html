@@ -2,8 +2,15 @@
 layout: page
 title: Vamos conversar
 ---
-<p>Nos encontramos em um evento ou algum texto despertou uma ideia? Você pode encontrar meu perfil no GitHub e continuar acompanhando o que publico por aqui.</p>
+<p>Nos encontramos em um evento ou algum texto despertou uma ideia? Encontre meus perfis e continue a conversa nas redes sociais.</p>
 <p><a class="button primary" href="https://github.com/{{ site.author.github | escape }}/">Meu perfil no GitHub <span aria-hidden="true">↗</span></a></p>
+<h2>Minhas redes sociais</h2>
+<p>Escolha onde acompanhar meu trabalho. Os links abrem em uma nova aba.</p>
+<ul class="social-links">
+  {% for profile in site.data.social %}
+  <li><a href="{{ profile.url | escape }}" target="_blank" rel="me noopener noreferrer"><strong>{{ profile.name | escape }} <span aria-hidden="true">↗</span></strong><span class="social-handle">{{ profile.handle | escape }}</span><span class="sr-only"> (abre em nova aba)</span></a></li>
+  {% endfor %}
+</ul>
 <h2>Acompanhe os próximos textos</h2>
 <p>Adicione o <a href="{{ '/feed.xml' | relative_url }}">feed RSS do blog</a> ao seu leitor para receber os novos artigos.</p>
 <p><a href="{{ '/palestras/' | relative_url }}">Ver palestras e materiais</a> · <a href="{{ '/blog/' | relative_url }}">Explorar o blog</a></p>
