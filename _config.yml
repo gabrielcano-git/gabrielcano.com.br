@@ -15,6 +15,12 @@ social:
   name: Gabriel Cano
   links:
     - https://github.com/gabrielcano-git/
+    - https://www.threads.com/@gabrielcano_i
+    - https://bsky.app/profile/gabrielcano.com.br
+    - https://x.com/gabrielcano_t
+    - https://www.instagram.com/gabrielcano_i/
+    - https://www.linkedin.com/in/gabrielcano-in/
+    - https://speakerdeck.com/gabrielcano
 markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
