@@ -35,7 +35,7 @@ O workflow **Deploy Jekyll site to Pages** publica pushes em `main` e execuçõe
 ## Conteúdo e curadoria
 
 - Artigos: `_posts`; URLs originais com data são preservadas.
-- Palestras: `_data/talks.yml`, com links para o post e o material real.
+- Palestras: `_data/talks.yml` reproduz os sete títulos e as descrições do [Speaker Deck](https://speakerdeck.com/gabrielcano), conferidos em 30/10/2026. A atualização é editorial: ao cadastrar ou editar um deck, atualize o YAML com título, resumo, descrição completa em Markdown, URL e ID do player. A home destaca os dois primeiros; `/palestras/` mostra todos com descrição expansível, embed oficial responsivo e link direto. `post_slug` é opcional e preserva materiais do blog. A gravação de Sage permanece no arquivo do blog.
 - Artigos destacados: slugs em `_data/highlights.yml`; independentes da cronologia.
 - `/blog/` contém a primeira página cronológica; `/page/2/` e `/page/3/` preservam a paginação existente.
 - Busca: `search.json` gerado em build inclui todo o acervo publicado. Não inclui o aviso do WordCamp 2025 nem rascunhos.

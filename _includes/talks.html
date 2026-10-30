@@ -1,14 +1,23 @@
 <div class="talks">
 {% for talk in site.data.talks limit:include.limit %}
-  {% assign talk_post = site.posts | where: 'slug', talk.slug | first %}
-  {% if talk_post %}
-  <article class="talk{% if forloop.first %} highlight{% endif %}">
-    <div class="meta"><span>{{ talk.event | escape }}</span><span>{{ talk.year }}</span></div>
+  <article id="{{ talk.slug | escape }}" class="talk{% if forloop.first %} highlight{% endif %}">
+    <div class="meta"><span>Speaker Deck</span><span>Slides</span></div>
     <h{{ include.heading | default: 3 }}>{{ talk.title | escape }}</h{{ include.heading | default: 3 }}>
-    <p>{{ talk.description | escape }}</p>
-    <a href="{{ talk_post.url | relative_url }}">Ver palestra e materiais <span aria-hidden="true">↗</span></a>
-    {% if include.resources %}<a href="{{ talk.resource_url | escape }}">{{ talk.resource | escape }} <span aria-hidden="true">↗</span></a>{% endif %}
+    <p>{{ talk.summary | escape }}</p>
+    {% if include.resources %}
+    <details class="talk-description">
+      <summary>Descrição completa</summary>
+      {{ talk.description | markdownify }}
+    </details>
+    <a href="{{ talk.speakerdeck_url | escape }}">Ver slides no Speaker Deck <span aria-hidden="true">↗</span></a>
+    {% if talk.post_slug %}
+      {% assign talk_post = site.posts | where: 'slug', talk.post_slug | first %}
+      {% if talk_post %}<a href="{{ talk_post.url | relative_url }}">Ver relato e materiais no blog <span aria-hidden="true">↗</span></a>{% endif %}
+    {% endif %}
+    {% include speakerdeck.html talk=talk %}
+    {% else %}
+    <a href="{{ '/palestras/' | relative_url }}#{{ talk.slug | escape }}">Ver palestra e slides <span aria-hidden="true">↗</span></a>
+    {% endif %}
   </article>
-  {% endif %}
 {% endfor %}
 </div>
